@@ -30,27 +30,28 @@ Arsitektur Firmware
 --------------------
 
 rfid-absen-firmware/
-├── rfid-absen-firmware.ino -> (entry point Arduino)
-├── README.md  
+├── rfid-absen-firmware.ino      # Entry point Arduino
+├── README.md
 │
-├── config/                 -> (konfigurasi device & environment)
+├── config/                      # Konfigurasi device & environment
 │   ├── config.h
 │   └── secrets.h.example
 │
-├── core/                   -> (WiFi & HTTP client)
+├── core/                        # WiFi & HTTP client
 │   ├── wifi_manager.c
 │   ├── wifi_manager.h
 │   ├── http_client.c
 │   └── http_client.h
 │
-├── rfid/                   ->(pembacaan kartu RFID)
+├── rfid/                        # Pembacaan kartu RFID
 │   ├── rfid_reader.c
 │   └── rfid_reader.h
 │
-└── utils/                  -> (crypto, buzzer, helper)
+└── utils/                       # Crypto, buzzer, helper
     ├── crypto.c
     ├── crypto.h
     └── buzzer.h
+
 
 
 Hardware yang Didukung
