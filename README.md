@@ -55,8 +55,7 @@ rfid-absen-firmware/
     ├── crypto.h
     └── buzzer.h
 
-
-
+```
 
 Hardware yang Didukung
 -----------------------
