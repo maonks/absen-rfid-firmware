@@ -22,12 +22,12 @@ Alur Proses Project
 Fitur Utama
 ------------
 
-🔐 Secure API Communication (HMAC SHA-256)
-📶 Auto WiFi Reconnect
-📴 Offline Queue saat jaringan terputus
-⏱️ Timestamp berbasis NTP
-🔔 Buzzer feedback
-🧩 Modular code structure (mudah dikembangkan)
+- 🔐 Secure API Communication (HMAC SHA-256)
+- 📶 Auto WiFi Reconnect
+- 📴 Offline Queue saat jaringan terputus
+- ⏱️ Timestamp berbasis NTP
+- 🔔 Buzzer feedback
+- 🧩 Modular code structure (mudah dikembangkan)
 
 
 Arsitektur Firmware
