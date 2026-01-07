@@ -1,2 +1,74 @@
-# absen-rfid-firmware
-Firmware absensi RFID berbasis XIAO ESP32-C3 Membaca kartu RFID, mengirim data absensi ke backend via HTTP + HMAC, mendukung mode offline queue, dan siap digunakan dengan Arduino IDE.
+📌 RFID Attendance Firmware – XIAO ESP32-C3
+============================================
+
+Repository ini berisi firmware production-ready untuk perangkat absensi RFID berbasis Seeed Studio XIAO ESP32-C3.
+Copyright 2025 @maonks
+
+
+Firmware ini bertugas untuk
+----------------------------
+
+- Membaca UID kartu RFID
+- Mengirim data absensi ke backend server
+- Menjaga keamanan komunikasi (HMAC SHA-256)
+- Menangani kondisi offline (data disimpan sementara)
+- Memberikan feedback buzzer saat kartu dibaca
+
+
+Fitur Utama
+------------
+
+🔐 Secure API Communication (HMAC SHA-256)
+📶 Auto WiFi Reconnect
+📴 Offline Queue saat jaringan terputus
+⏱️ Timestamp berbasis NTP
+🔔 Buzzer feedback
+🧩 Modular code structure (mudah dikembangkan)
+
+
+Arsitektur Firmware
+--------------------
+
+rfid-absen-firmware/
+├── rfid-absen-firmware.ino -> (entry point Arduino)
+├── README.md  
+│
+├── config/                 -> (konfigurasi device & environment)
+│   ├── config.h
+│   └── secrets.h.example
+│
+├── core/                   -> (WiFi & HTTP client)
+│   ├── wifi_manager.c
+│   ├── wifi_manager.h
+│   ├── http_client.c
+│   └── http_client.h
+│
+├── rfid/                   ->(pembacaan kartu RFID)
+│   ├── rfid_reader.c
+│   └── rfid_reader.h
+│
+└── utils/                  -> (crypto, buzzer, helper)
+    ├── crypto.c
+    ├── crypto.h
+    └── buzzer.h
+
+
+Hardware yang Didukung
+-----------------------
+
+- Seeed Studio XIAO ESP32-C3
+- RFID Reader (MFRC522 / kompatibel)
+- Buzzer aktif
+- Koneksi WiFi 2.4GHz
+
+
+Cara Penggunaan Singkat (Arduino IDE)
+-------------------------------------
+
+- Clone / download repository
+- Buka folder repository di Arduino IDE (2.3.6 Recomended)
+- Copy config/secrets.h.example → secrets.h
+- Isi WiFi & API secret
+- Pilih board XIAO ESP32-C3
+- Upload firmware
+- Testing
