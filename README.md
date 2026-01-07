@@ -14,6 +14,11 @@ Firmware ini bertugas untuk
 - Menangani kondisi offline (data disimpan sementara)
 - Memberikan feedback buzzer saat kartu dibaca
 
+Alur Proses Project
+--------------------
+
+![Arsitektur](docs/alur_proses.png)
+
 
 Fitur Utama
 ------------
