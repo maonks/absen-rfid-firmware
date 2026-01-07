@@ -18,7 +18,6 @@ Alur Proses Project
 --------------------
 
 ![Arsitektur](docs/alur_proses.png)
-![Interface](docs/interface.webp)
 
 Fitur Utama
 ------------
