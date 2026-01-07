@@ -1,8 +1,10 @@
 ⏱️ Absen Online RFID Firmware – XIAO ESP32-C3
 ============================================
 
-Repository ini berisi firmware production-ready untuk perangkat absensi RFID berbasis Seeed Studio XIAO ESP32-C3.
-Copyright 2025 @maonks
+Repository ini berisi firmware untuk perangkat RFID berbasis Seeed Studio XIAO ESP32-C3.
+untuk proses push data absensi 
+
+@Copyright 2025 maonks
 
 
 Firmware ini bertugas untuk
