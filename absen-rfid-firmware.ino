@@ -23,7 +23,7 @@ void loop() {
   if (!readRFID(uid)) return;
 
   buzz();
-  String waktu = "AUTO_TIME"; // bisa pakai fungsi time util
+  String waktu = "AUTO_TIME";
   sendAbsen(uid, waktu);
 
   delay(1500);
