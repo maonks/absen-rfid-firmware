@@ -2,7 +2,7 @@
 ============================================
 
 Repository ini berisi firmware untuk perangkat RFID berbasis Seeed Studio XIAO ESP32-C3.
-untuk proses push data absensi 
+untuk proses push data absensi ke REST-API.
 
 @Copyright 2025 maonks
 
