@@ -29,8 +29,6 @@ Fitur Utama
 Arsitektur Firmware
 --------------------
 
-### 📐 Arsitektur Firmware
-
 ```text
 rfid-absen-firmware/
 ├── rfid-absen-firmware.ino      # Entry point Arduino
