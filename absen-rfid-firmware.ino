@@ -1,30 +1,53 @@
-#include <Arduino.h>
-#include <time.h>
+#include "config.h"
+#include "secrets.h"
 
-#include "config/config.h"
-#include "core/wifi_manager.h"
-#include "core/http_client.h"
-#include "rfid/rfid_reader.h"
-#include "utils/buzzer.h"
+#include "wifi_manager.h"
+#include "http_client.h"
+#include "rfid_reader.h"
+#include "crypto.h"
+#include "buzzer.h"
+
+
+
+
+unsigned long lastTap = 0;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(BUZZER_PIN, OUTPUT);
+  buzzerInit();
 
   wifiConnect();
-  configTime(28800, 0, "pool.ntp.org");
+  initTime();
+  rfidInit();
 
-  SPI.begin();
-  Serial.println("READY - TAP CARD");
+  Serial.println("[RFID] Ready");
 }
 
 void loop() {
-  String uid;
-  if (!readRFID(uid)) return;
+  syncOfflineQueue();
 
-  buzz();
-  String waktu = "AUTO_TIME";
-  sendAbsen(uid, waktu);
+  if (!rfidCardPresent()) return;
 
-  delay(1500);
+  unsigned long now = millis();
+  if (now - lastTap < TAP_COOLDOWN) return;
+  lastTap = now;
+
+  String uid = rfidReadUID();
+  String waktu = getNowTime();
+
+  Serial.printf("[TAP] UID=%s | TIME=%s\n", uid.c_str(), waktu.c_str());
+  Serial.flush();
+
+  // bunyi saat TAP
+  buzzerTap();
+
+  if (sendData(uid, waktu)) {
+    Serial.println("[INFO] Sukses kirim");
+    buzzerSuccess();        // 🔥 2x beep
+  } else {
+    queueOffline(uid, waktu);
+    Serial.println("[INFO] Gagal kirim → queued");
+    buzzerError();          // 🔥 beep panjang
+  }
+
 }
