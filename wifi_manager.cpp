@@ -4,6 +4,7 @@
 #include <WiFi.h>
 #include <time.h>
 
+
 void wifiConnect() {
   WiFi.begin(WIFI_SSID, WIFI_PASS);
   
@@ -18,3 +19,7 @@ void wifiConnect() {
 void initTime() {
   configTime(28800, 0, "pool.ntp.org");
 }
+
+
+
+

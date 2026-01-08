@@ -17,10 +17,17 @@ void setup() {
   buzzerInit();
 
   wifiConnect();
+
+  testHttpBasic();
+  testPostNoHmac();
+  
   initTime();
   rfidInit();
 
   Serial.println("[RFID] Ready");
+
+  Serial.println("[TEST] IP ESP32 = " + WiFi.localIP().toString());
+  Serial.println("[TEST] Gateway = " + WiFi.gatewayIP().toString());
 }
 
 void loop() {
